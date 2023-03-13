@@ -7,10 +7,34 @@ namespace Laby2wizualne
             InitializeComponent();
         }
 
+        private double computerPrice = 0;
+        public void SaveComputerPrice(double newComputerPrice)
+        {
+            computerPrice = newComputerPrice;
+            CalculateTotalPrice();
+        }
+        private double monitorPrice = 0;
+        public void SaveMonitorPrice(double newMonitorPrice)
+        {
+            monitorPrice = newMonitorPrice;
+            CalculateTotalPrice();
+        }
+
+        private double totalPrice = 0;
+        private void CalculateTotalPrice()
+        {
+            totalPrice = monitorPrice + computerPrice;
+            label2.Text = totalPrice.ToString();
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
-            form2.Show();
+            using (Form2 form2 = new Form2())
+            {
+                form2.SaveComputerPrice += SaveComputerPrice;
+                form2.ShowDialog(this);
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -20,8 +44,11 @@ namespace Laby2wizualne
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
-            form3.Show();
+            using (Form3 form3 = new Form3())
+            {
+                form3.SaveMonitorPrice += SaveMonitorPrice;
+                form3.ShowDialog(this);
+            }
         }
     }
 }

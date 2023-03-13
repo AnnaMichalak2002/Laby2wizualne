@@ -40,6 +40,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // radioButton1
@@ -91,12 +92,33 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Radeon RX 6800 XT",
-            "Radeon RX 6900 XT",
-            "Radeon RX 6950 XT",
-            "GeForce RTX 3080",
-            "GeForce RTX 3080 Ti"});
+            comboBox1.DisplayMember = "Text";
+            comboBox1.ValueMember = "Value";
+            this.comboBox1.Items.Add(new 
+            {
+                Text = "Radeon RX 6800 XT",
+                Value = 50
+            });
+            this.comboBox1.Items.Add(new
+            {
+                Text = "Radeon RX 6900 XT",
+                Value = 100
+            });
+            this.comboBox1.Items.Add(new
+            {
+                Text = "Radeon RX 6950 XT",
+                Value = 160
+            });
+            this.comboBox1.Items.Add(new
+            {
+                Text = "GeForce RTX 3080",
+                Value = 200
+            });
+            this.comboBox1.Items.Add(new
+            {
+                Text = "GeForce RTX 3080 Ti",
+                Value = 300
+            });
             this.comboBox1.Location = new System.Drawing.Point(117, 273);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(172, 28);
@@ -177,12 +199,23 @@
             this.label2.Text = "CENA";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(540, 360);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 25);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "zł";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -215,5 +248,6 @@
         private Button button2;
         private Label label1;
         private Label label2;
+        private Label label4;
     }
 }
