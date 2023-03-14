@@ -25,17 +25,19 @@ namespace Laby2wizualne
             this.Close();
         }
         private double cena = 0;
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void listView1_MouseDown(object sender, MouseEventArgs e)
         {
-            int a = 0;
-            if (listView1.SelectedItems.Count > 0)
+            var info = listView1.HitTest(e.X, e.Y);
+            if (info.Item != null)
             {
-                /*string name = listView1.SelectedItems[0].Text;*/
-                string priceText = listView1.SelectedItems[0].SubItems[1].Text;
+                var row = info.Item.Index;
+                string priceText = listView1.Items[row].SubItems[2].Text;
                 label2.Text = priceText;
                 if (Int32.TryParse(priceText, out int newPrice))
                     cena = newPrice;
             }
-        }
+
+        } 
     }
 }

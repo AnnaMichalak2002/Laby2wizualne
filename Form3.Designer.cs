@@ -30,15 +30,19 @@
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "monitor1",
+            "22",
             "100"}, -1);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "monitor2",
+            "24",
             "200"}, -1);
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.Nazwa = new System.Windows.Forms.ColumnHeader();
+            this.Cale = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // button1
@@ -83,6 +87,9 @@
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Nazwa,
+            this.Cale});
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2});
@@ -91,8 +98,18 @@
             this.listView1.Size = new System.Drawing.Size(273, 308);
             this.listView1.TabIndex = 17;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDown);
+            // 
+            // Nazwa
+            // 
+            this.Nazwa.Text = "Nazwa";
+            this.Nazwa.Width = 135;
+            // 
+            // Cale
+            // 
+            this.Cale.Text = "Cale";
+            this.Cale.Width = 130;
             // 
             // Form3
             // 
@@ -116,5 +133,7 @@
         private Label label2;
         private Label label4;
         private ListView listView1;
+        private ColumnHeader Nazwa;
+        private ColumnHeader Cale;
     }
 }
